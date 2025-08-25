@@ -24,7 +24,12 @@ import nltk
 nltk.download('wordnet')
 ```
 
-It is hard to install all packages. Installing pytorch-lightning uninstall my previously installed pytorch 2.0.1 compatible with CUDA 11.7. And installing lavis need spacy==3.7.2 to be compatible with python 3.8. Huggingface_hub==0.25.2 works. Model `microsoft/BiomedNLP-PubMedBERT-base-uncased-abstract-fulltext` is to be used but Encounter `HTTPSConnectionPool... Read timed out`
+### RTX 3090 envs
+It is hard to install all packages. Installing pytorch-lightning uninstall my previously installed pytorch 2.0.1 compatible with CUDA 11.7. And installing lavis need spacy==3.7.2 to be compatible with python 3.8. Huggingface_hub==0.25.2 works. Model `microsoft/BiomedNLP-PubMedBERT-base-uncased-abstract-fulltext` is to be used but Encounter `HTTPSConnectionPool... Read timed out`. And after successful installation, runing stage1.py get index out of range for deepspeed runtime zero reduce_ipg_grads, where empty bucket is found.
+
+### A100 envs
+installation is smooth, as long as necessary gcc/g++, LD_LIBRARY_PATH, CUDA_HOME, LIBRARY_PATH is set in the environment.
+
 ## Dataset
 
 Download our pre-processed datasets from [link](https://osf.io/23azs/?view_only=185575515e714f4798499bf06513a730), and unzip the datasets under the `./data` directory
